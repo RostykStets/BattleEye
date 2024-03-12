@@ -1,0 +1,32 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>294</x><y>60</y><w>370</w><h>160</h></coordinates><panel_attributes>Users
+--
+id: serial
+username: varchar (25)
+email: varchar(30) unique
+--password: varchar(72) -- hashed password + unique (optional)
+password: bytea(72) -- hashed + unique (optional)
+remember_me: boolean
+registration_date: datetime
+last_session: datetime
+device: varchar(30)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>384</x><y>260</y><w>300</w><h>100</h></coordinates><panel_attributes>Images
+--
+id: serial
+fk_user_id: serial REF Users(id) delete cascade
+imgref: varchar(100)
+creation_date: datetime</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>14</x><y>330</y><w>310</w><h>90</h></coordinates><panel_attributes>History
+--
+fk_user_id: serial REF Users(id) delete cascade
+fk_img_id: serial REF Images(id) delete cascade
+fk_obj_id: serial REF Image_objects(id) delete cascade</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>384</x><y>400</y><w>370</w><h>180</h></coordinates><panel_attributes>Image_objects
+--
+id: serial
+title: varchar(30)
+coordinate: tuple(short, short)
+height: short
+width: short
+fk_user_id: serial REF Users(id) delete cascade
+fk_img_id: serial REF Images(id) delete cascade
+--
+If tuple is avaible in PostgreSQL, concat height and width 
+into dimentions(short, short)
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
