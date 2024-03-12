@@ -1,6 +1,6 @@
 # BattleEye
-Mobile application that detects military objects using artificial intelligence.
+Mobile application that detects military objects using artificial intelligence.<br>
 
 Developers:
-Stets Rostyk \n
+Stets Rostyk<br>
 Skvarko Andrew
